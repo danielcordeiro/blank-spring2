@@ -1,4 +1,4 @@
-package com.dgc.cursomc;
+package com.dgc;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

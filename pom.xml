@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.dgc.control</groupId>
-	<artifactId>cursomc</artifactId>
+	<groupId>com.dgc</groupId>
+	<artifactId>dgc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>control</name>
-	<description>Controle de Plantões</description>
+	<name>dgc</name>
+	<description>Blank Project Model</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -67,6 +67,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
+		<!-- MONGODB -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
 
 		<!-- EMAIL -->
 		<dependency>
@@ -106,6 +111,19 @@
 			<artifactId>imgscalr-lib</artifactId>
 			<version>4.2</version>
 		</dependency>
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

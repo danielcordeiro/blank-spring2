@@ -4,7 +4,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.dgc.security.UserSS;
 
-public class UserService {
+public class UserAuthService {
 
 	public static UserSS authenticated() {
 		try {

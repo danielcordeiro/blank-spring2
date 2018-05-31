@@ -14,7 +14,7 @@ import com.dgc.dto.EmailDTO;
 import com.dgc.security.JWTUtil;
 import com.dgc.security.UserSS;
 import com.dgc.service.AuthService;
-import com.dgc.service.UserService;
+import com.dgc.service.UserAuthService;
 
 @RestController
 @RequestMapping(value = "/auth")
@@ -28,7 +28,7 @@ public class AuthResource {
 
 	@RequestMapping(value = "/refresh_token", method = RequestMethod.POST)
 	public ResponseEntity<Void> refreshToken(HttpServletResponse response) {
-		UserSS user = UserService.authenticated();
+		UserSS user = UserAuthService.authenticated();
 		String token = jwtUtil.generateToken(user.getUsername());
 		response.addHeader("Authorization", "Bearer " + token);
 		response.addHeader("access-control-expose-headers", "Authorization");
