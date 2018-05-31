@@ -24,6 +24,10 @@ import com.dgc.dto.ClienteDTO;
 import com.dgc.dto.ClienteNewDTO;
 import com.dgc.service.ClienteService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping(value = "/clientes")
 public class ClienteResource {
@@ -31,14 +35,15 @@ public class ClienteResource {
 	@Autowired
 	private ClienteService service;
 
+	@ApiOperation(value = "Busca por id")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Cliente> find(@PathVariable Integer id) {
 		Cliente obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
-	@RequestMapping(value="/email", method=RequestMethod.GET)
-	public ResponseEntity<Cliente> find(@RequestParam(value="value") String email) {
+
+	@RequestMapping(value = "/email", method = RequestMethod.GET)
+	public ResponseEntity<Cliente> find(@RequestParam(value = "value") String email) {
 		Cliente obj = service.findByEmail(email);
 		return ResponseEntity.ok().body(obj);
 	}
@@ -59,6 +64,9 @@ public class ClienteResource {
 		return ResponseEntity.noContent().build();
 	}
 
+	@ApiOperation(value = "Remove Usuário")
+	@ApiResponses(value = { @ApiResponse(code = 400, message = "Não é possível excluir usuário..."),
+			@ApiResponse(code = 404, message = "Código inexistente") })
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
